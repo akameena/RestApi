@@ -1,17 +1,15 @@
-package com.anil.HibernateMapping;
+package com.mapping2.main;
 
-import java.sql.DriverManager;
 
-import javax.transaction.Transaction;
 
-import org.hibernate.Session;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.anil.crud.Delete;
-import com.anil.crud.Save;
-import com.anil.model.Employee;
-import com.anil.model.Technology;
+import com.mapping2.crud.Delete;
+import com.mapping2.crud.Save;
+import com.mapping2.model.Courses;
+import com.mapping2.model.Instructor;
 
 
 /**
@@ -25,14 +23,14 @@ public class App
         System.out.println( "Hello World!" );
         SessionFactory factory = new Configuration()
 					        		.configure()
-					        		.addAnnotatedClass(Employee.class)
-					        		.addAnnotatedClass(Technology.class)
+					        		.addAnnotatedClass(Instructor.class)
+					        		.addAnnotatedClass(Courses.class)
 					        		.buildSessionFactory();
         
         //Save sobj = new Save();
         Delete dobj = new Delete();
         dobj.delete(factory);
-        //sobj.save(factory);
+       // sobj.save(factory);
         
         factory.close();
     }

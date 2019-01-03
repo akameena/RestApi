@@ -1,5 +1,6 @@
 package com.anil.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,10 +11,18 @@ import javax.persistence.OneToOne;
 @Entity
 public class Employee {
 	
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", tech=" + tech + "]";
+	}
 	@Id
 	private int id;
 	private String name;
-	@OneToOne
+	@OneToOne(cascade= CascadeType.ALL)
 	@JoinColumn(name="tech_id")
 	Technology tech ;
 	public int getId() {
